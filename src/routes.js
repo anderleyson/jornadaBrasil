@@ -6,30 +6,6 @@ const routes = new Router();
 
 
 
-
-import mysql from 'mysql2';
-
-
-var connection = mysql.createConnection({
-    host: process.env.DATABASE_HOST || 'localhost',
-    user: process.env.DATABASE_USERNAME || 'root',
-    password: process.env.DATABASE_PASSWORD ||'2205derLEYan',
-    database: process.env.DATABASE_NAME || 'jornada_brasil'
-    
-});
-connection.connect((err)=> {
-    if(err){
-        console.log("Erro ao conectar com o banco!\n" + err)
-    }else{
-        console.log("Conectado com o banco!")
-    }
-    
-});
-
-
-
-
-
 /**
  * 
  *  Rotas para requisições de usuário 

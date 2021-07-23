@@ -1,7 +1,11 @@
+import connection from '../../config/connection'
+
+
 
 
 class UserController{
 
+    
     store(req,res){
 
         if (req.body.name == "" || req.body.email == "" || req.body.password == "") {

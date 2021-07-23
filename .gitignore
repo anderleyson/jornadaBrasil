@@ -1,3 +1,5 @@
 node_modules/
 
 .env
+
+jornada_brasil.sql
