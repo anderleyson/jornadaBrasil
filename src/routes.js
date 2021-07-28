@@ -1,9 +1,11 @@
 import { Router } from "express";
+import uploads from './config/upload'
 import placeController from "./app/controllers/placeController";
 import userController from './app/controllers/userController';
-import uploads from './config/uploads'
 
 const routes = new Router();
+
+
 
 /**
  * 
