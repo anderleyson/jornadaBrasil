@@ -1,10 +1,9 @@
 import { Router } from "express";
 import placeController from "./app/controllers/placeController";
 import userController from './app/controllers/userController';
+import uploads from './config/uploads'
 
 const routes = new Router();
-
-
 
 /**
  * 
@@ -21,7 +20,7 @@ routes.post("/user", userController.store);
  * 
 */
 routes.get("/local", placeController.show);
-routes.post("/local", placeController.store)
+routes.post("/local", uploads.single('local_capa'), placeController.store)
 
 
 export default routes;
