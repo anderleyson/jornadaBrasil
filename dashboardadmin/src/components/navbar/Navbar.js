@@ -1,7 +1,7 @@
 import './Navbar.css'
 import avatar from '../../assets/logo.svg'
 
-const Navbar = () => {
+const Navbar = ({ sidebarOpen, openSidebar }) => {
   return (
     <nav className="navbar">
       <div className="nav_icon" onClick={() => openSidebar()}>
