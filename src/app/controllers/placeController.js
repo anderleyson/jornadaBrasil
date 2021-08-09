@@ -2,8 +2,9 @@ import connection from '../../config/connection';
 
 
 class PlaceController{
-
+    
     insertPonto(req, res){
+        let id = req.params.id;
         console.log(req.file);
     
             connection.query("`jornada_brasil`.`pontos_turisticos` (`id_ponto`, `desc_ponto`, `cidade`, `valor`, `tipo`, `curiosidade`, `foto_principal_ponto`, `id_roteiro`) VALUES ('?', '?', '?', '?', '?', '?', '?', '?');",
@@ -15,7 +16,7 @@ class PlaceController{
                 req.body.tipo,
                 req.body.curiosidade,
                 req.file.path,
-                req.body.id_roteiro
+                id
             ], 
             (err) => {
                 if(err){
