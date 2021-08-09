@@ -1,4 +1,4 @@
-// import Chart from '../charts/Chart'
+import Chart from '../charts/Charts'
 import './Main.css'
 
 const Main = () => {
