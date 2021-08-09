@@ -4,7 +4,7 @@ import logo from '../../assets/logo.svg'
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
   return (
     <div className={sidebarOpen ? 'sidebar-responsive' : ''} id="sidebar">
-      <div className="sidebar__tutle">
+      <div className="sidebar__title">
         <div className="sidebar__img">
           <img src={logo} alt="logo" />
           <h1>Jornada Brasil</h1>
@@ -64,7 +64,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
           <i className="fa fa-file-text"></i>
           <a href="#">Politica de privacidade</a>
         </div>
-        <div className="logout">
+        <div className="sidebar__logout">
           <i className="fa fa-power-off"></i>
           <a href="#">Log out</a>
         </div>
