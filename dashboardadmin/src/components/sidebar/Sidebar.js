@@ -1,5 +1,5 @@
 import './Sidebar.css'
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/logo_branca.svg'
 
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
   return (
