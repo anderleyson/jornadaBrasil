@@ -1,11 +1,20 @@
-import './App.css';
+import { useState } from 'react'
+import './App.css'
 
-function App() {
+const App = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const openSidebar = () => {
+    setSidebarOpen(true)
+  }
+  const closeSidebar = () => {
+    setSidebarOpen(false)
+  }
+
   return (
-    <div className="App">
+    <div className="container">
       <h1>Hello World</h1>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
