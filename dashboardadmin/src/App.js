@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Sidebar from './components/sidebar/Sidebar'
 import './App.css'
 
 const App = () => {
@@ -12,7 +13,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>Hello World</h1>
+      <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
     </div>
   )
 }
