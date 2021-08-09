@@ -1,32 +1,25 @@
 import connection from '../../config/connection';
-import path from 'path';
-import multer from 'multer';
 
 
 class PlaceController{
 
-    async store(req, res){
-
+    insertPonto(req, res){
         console.log(req.file);
-        
-        if (req.body.nm_regiao == "" || req.body.nm_estado == "" || req.body.nm_cidade == "" || req.body.desc_cidade == "" || req.body.desc_estado == "" || req.body.desc_regiao == "" || req.body.nm_local == "") {
-            return res.status(400).send({ message: 'Dados inseridos de forma incorreta. Verifique os dados informados e tente novamente.' });
-        }else{
-            connection.query("INSERT INTO `jornada_brasil`.`regioes` (`nm_regiao`, `nm_estado`, `nm_cidade`, `desc_cidade`, `desc_estado`, `desc_regiao`, `nm_local`, `local_capa`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);",
+    
+            connection.query("`jornada_brasil`.`pontos_turisticos` (`id_ponto`, `desc_ponto`, `cidade`, `valor`, `tipo`, `curiosidade`, `foto_principal_ponto`, `id_roteiro`) VALUES ('?', '?', '?', '?', '?', '?', '?', '?');",
             [
-                req.body.nm_regiao,
-                req.body.nm_estado,
-                req.body.nm_cidade,
-                req.body.desc_cidade,
-                req.body.desc_estado,
-                req.body.desc_regiao,
-                req.body.nm_local,
-                req.file.path
+                req.body.id_ponto,
+                req.body.desc_ponto,
+                req.body.cidade,
+                req.body.valor,
+                req.body.tipo,
+                req.body.curiosidade,
+                req.file.path,
+                req.body.id_roteiro
             ], 
             (err) => {
                 if(err){
-                    //console.log(err);
-        
+                    console.log(err)
                     return res.status(400).json({
                         error: true, 
                         message: "Erro ao tentar inserir local no banco"
@@ -34,16 +27,61 @@ class PlaceController{
                 }    
                 return res.status(200).json({
                     error:false,
-                    message: "Local inserido."
+                    message: "Local inserido.",
+                    local:{
+                        "Nome do ponto turístico:": req.body.nome_ponto,
+                        "Descrição:": req.body.desc_ponto,
+                        "Cidade:": req.body.nome_cidade,
+                        "Valor": req.body.valor,
+                        "Tipo": req.body.tipo,
+                        "Curiosidade": req.body.curiosidade,
+                        "Foto": req.file.path,
+                        "Roteiro:": req.body.id_roteiro
+                    }
                 })
             })
-        }
     }
-
-    show(req,res){
-
+    insertRoteiro(req,res){
+        connection.query("INSERT INTO `jornada_brasil`.`roteiros` (`id_roteiro`, `desc_roteiro`, `foto_capa_roteiro`, `foto_principal_roteiro`, `id_estado`) VALUES ('?', '?', '?', '?', '?');",
+        [
+            req.body.id_roteiro,
+            req.body.desc_roteiro,
+            req.file.path,
+            req.file.path,
+            req.body.id_estado
+        ], 
+        (err) => {
+            if(err){
+                console.log(err)
+                return res.status(400).json({
+                    error: true, 
+                    message: "Erro ao tentar inserir roteiro no banco"
+                })
+            }    
+            return res.status(200).json({
+                error:false,
+                message: "Roteiro inserido.",
+                local:{
+                    "Nome do roteiro:": req.body.id_roteiro,
+                    "Descrição:": req.body.desc_roteiro,
+                    "Foto de capa": req.file.path,
+                    "Foto principal": req.file.path,
+                    "Estado:": req.body.id_estado
+                }
+            })
+        })
     }
     
+    
+    
+    show(req,res){
+        
+        connection.query('SELECT id, foto_capa FROM roteiros ORDER BY rand() LIMIT 5;', function (err, rows, fields) {
+            if (err) throw err
+    
+            res.send(rows);
+        })
+    }
 }
 
 export default new PlaceController();

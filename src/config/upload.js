@@ -1,6 +1,6 @@
 import multer from 'multer';
 
-
+/*Dá pra definir uma pasta pra cada tipo de foto ou arquivo*/
 const storage = multer.diskStorage(
     {
       destination: './uploads',
