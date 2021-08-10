@@ -88,8 +88,6 @@ class PlaceController{
             if (err) throw err
     
             res.send(rows);
-
-
         })
     }
 }

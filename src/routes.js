@@ -12,21 +12,14 @@ const routes = new Router();
 
 
 /**
- * 
  * Rotas para telas
- * 
  */
 routes.get("/", placeController.show);
-
 routes.get("/regiao/:id", regiaoController.getRegiao);
 routes.get("/estado/:id", estadoController.getEstado);
 
-
-
 /**
- * 
  *  Rotas para requisições de usuário 
- * 
 */
 routes.get("/user", userController.show);
 routes.post("/user", userController.store);
