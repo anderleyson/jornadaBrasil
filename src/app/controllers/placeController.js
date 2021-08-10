@@ -1,13 +1,12 @@
-import connection from '../../config/connection';
-
+const connection = require('../../config/connection');
+const multer = require('multer')
 
 class PlaceController{
     
     insertPonto(req, res){
-        let id = req.params.id;
+       let id = req.params.id;
         console.log(req.file);
-    
-            connection.query("`jornada_brasil`.`pontos_turisticos` (`id_ponto`, `desc_ponto`, `cidade`, `valor`, `tipo`, `curiosidade`, `foto_principal_ponto`, `id_roteiro`) VALUES ('?', '?', '?', '?', '?', '?', '?', '?');",
+            connection.query("INSERT INTO `jornada_brasil`.`pontos_turisticos` (`id_ponto`, `desc_ponto`, `cidade`, `valor`, `tipo`, `curiosidade`, `foto_principal_ponto`, `id_roteiro`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);",
             [
                 req.body.id_ponto,
                 req.body.desc_ponto,
@@ -19,13 +18,21 @@ class PlaceController{
                 id
             ], 
             (err) => {
-                if(err){
+
+                if (err instanceof multer.MulterError) {
+                    console.log(err)
+                    return res.status(400).json({
+                        error: true, 
+                        message: "Erro ao tentar inserir imagem no banco"
+                    })
+                  } else if (err) {
                     console.log(err)
                     return res.status(400).json({
                         error: true, 
                         message: "Erro ao tentar inserir local no banco"
                     })
-                }    
+                  }
+                 
                 return res.status(200).json({
                     error:false,
                     message: "Local inserido.",
@@ -37,7 +44,7 @@ class PlaceController{
                         "Tipo": req.body.tipo,
                         "Curiosidade": req.body.curiosidade,
                         "Foto": req.file.path,
-                        "Roteiro:": req.body.id_roteiro
+                        "Roteiro:": id
                     }
                 })
             })
@@ -81,8 +88,11 @@ class PlaceController{
             if (err) throw err
     
             res.send(rows);
+
+
         })
     }
 }
 
-export default new PlaceController();
+
+module.exports =  new PlaceController();

@@ -1,4 +1,4 @@
-import mysql from 'mysql2'
+const mysql = require('mysql2')
 require('dotenv').config();
 
 
@@ -21,4 +21,4 @@ connection.connect((err)=> {
 });
 
 
-export default connection;
+module.exports = connection;

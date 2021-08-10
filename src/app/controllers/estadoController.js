@@ -1,4 +1,4 @@
-import connection from '../../config/connection'
+const connection = require('../../config/connection');
 
 class EstadoController{
 
@@ -13,4 +13,5 @@ class EstadoController{
     }
 
 }
-export default new  EstadoController();
+
+module.exports =  new  EstadoController();

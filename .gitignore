@@ -2,5 +2,8 @@ node_modules/
 
 .env
 
+uploads/*
+!uploads/.gitkeep
+
 jornada_brasil.sql
 jornada_brasil_requisicoes.sql

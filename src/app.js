@@ -1,6 +1,7 @@
-import express from 'express';
-import routes from './routes';
-import cors from 'cors';
+const express = require('express');
+const routes = require('./routes');
+const cors = require('cors');
+require('dotenv').config();
 
 class App{
 
@@ -33,4 +34,4 @@ class App{
 
 }
 
-export default new App().app;
+module.exports = new App().app;

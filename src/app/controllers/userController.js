@@ -1,7 +1,4 @@
-import connection from '../../config/connection'
-
-
-
+const connection = require('../../config/connection');
 
 class UserController{
 
@@ -36,4 +33,5 @@ class UserController{
 
 }
 
-export default new UserController();
+
+module.exports =  new UserController();

@@ -1,5 +1,4 @@
-import connection from '../../config/connection';
-
+const connection = require('../../config/connection');
 
 class RegiaoController{
 
@@ -23,4 +22,5 @@ class RegiaoController{
         }
 
 }
-export default new RegiaoController();
+
+module.exports =  new RegiaoController();
