@@ -1,4 +1,3 @@
-import Chart from '../charts/Charts'
 import './Main.css'
 
 const Main = () => {
@@ -14,7 +13,6 @@ const Main = () => {
 
         <div className="main__cards">
           <div className="card">
-            <i className="fa fa-file-text fa-2x text-lightblue"></i>
             <div className="card_inner">
               <p className="text-primary-p">Número de pedidos</p>
               <span className="font-bold text-title">578</span>
@@ -22,7 +20,6 @@ const Main = () => {
           </div>
 
           <div className="card">
-            <i className="fa fa-money fa-2x text-red"></i>
             <div className="card_inner">
               <p className="text-primary-p">Pagamentos</p>
               <span className="font-bold text-title">R$2.467,00</span>
@@ -30,7 +27,6 @@ const Main = () => {
           </div>
 
           <div className="card">
-            <i className="fa fa-archive fa-2x text-yellow"></i>
             <div className="card_inner">
               <p className="text-primary-p">Número de produtos</p>
               <span className="font-bold text-title">670</span>
@@ -38,7 +34,6 @@ const Main = () => {
           </div>
 
           <div className="card">
-            <i className="fa fa-bars fa-2x text-green"></i>
             <div className="card_inner">
               <p className="text-primary-p">Categorias</p>
               <span className="font-bold text-title">40</span>
