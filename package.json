@@ -23,6 +23,7 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@vercel/node": "^1.12.1",
     "nodemon": "^2.0.12",
     "sucrase": "^3.20.1"
   }
