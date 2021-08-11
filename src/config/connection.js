@@ -1,12 +1,13 @@
 const mysql = require('mysql2')
+const dbConfig = require('../../db.config.js')
 
 
 
-const connection = mysql.createPool({
-    host: dbConfig.HOST,
-    user: dbConfig.USER,
-    password: dbConfig.PASSWORD,
-    database: dbConfig.DB   
+const connection = mysql.createConnection({
+    host: dbConfig.HOST || 'us-cdbr-east-04.cleardb.com',
+    user: dbConfig.USER || 'b2f06df2571ed0',
+    password: dbConfig.PASSWORD || '6781b398',
+    database: dbConfig.DB || 'heroku_d85d9926c96b391'
 });
 connection.connect((err)=> {
     if(err){
