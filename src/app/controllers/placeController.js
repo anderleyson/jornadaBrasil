@@ -88,9 +88,11 @@ class PlaceController{
             if (err) 
             {
                 res.send("Erro" + err);
+            }else{
+                res.send(rows);
             }
     
-            res.send(rows);
+            
         })
     }
 }
