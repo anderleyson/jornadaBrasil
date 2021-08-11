@@ -47,17 +47,6 @@ const Main = () => {
         </div>
 
         <div className="charts">
-          <div className="charts__left">
-            <div className="charts__left__title">
-              <div>
-                <h1>Daily Reports</h1>
-                <p>Ubatuba, São paulo, BR</p>
-              </div>
-              <i className="fa fa-usd"></i>
-            </div>
-            <Chart />
-          </div>
-
           <div className="right">
             <div className="charts__right__title">
               <div>
