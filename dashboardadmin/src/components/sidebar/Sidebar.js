@@ -1,5 +1,6 @@
 import './Sidebar.css'
 import logo from '../../assets/logo_branca.svg'
+import Link from 'next/link'
 
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
   return (
@@ -19,11 +20,11 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
       </div>
       <div className="sidebar__menu">
         <div className="sidebar__link active_menu_link">
-          <a href="/">Home</a>
+          <Link href="/"><a>Home</a></Link>
         </div>
         <h2>Roteiros</h2>
         <div className="sidebar__link">
-          <a href="/roteiro">Adicionar Roteiros</a>
+          <Link href="/addRoteiro"><a>Adicionar Roteiros</a></Link>
         </div>
         <div className="sidebar__link">
           <a href="/updateRoteiro">Atualizar Roteiros</a>
