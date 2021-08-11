@@ -14,7 +14,7 @@ const routes = new Router();
 /**
  * Rotas para telas
  */
-//routes.get("/", placeController.show);
+routes.get("/", placeController.show);
 routes.get("/regiao/:id", regiaoController.getRegiao);
 routes.get("/estado/:id", estadoController.getEstado);
 
