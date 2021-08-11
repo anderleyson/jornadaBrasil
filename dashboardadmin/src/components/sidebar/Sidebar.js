@@ -21,37 +21,33 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
         <div className="sidebar__link active_menu_link">
           <a href="/">Home</a>
         </div>
-        <h2>ADMIN</h2>
+        <h2>Roteiros</h2>
         <div className="sidebar__link">
-          <a href="#">Área administrativa</a>
+          <a href="/roteiro">Adicionar Roteiros</a>
         </div>
         <div className="sidebar__link">
-          <a href="#">Lojas</a>
+          <a href="/updateRoteiro">Atualizar Roteiros</a>
         </div>
         <div className="sidebar__link">
-          <a href="#">Produtos</a>
+          <a href="/deleteRoteiro">Deletar Roteiros</a>
+        </div>
+        <h2>Pontos Turísticos</h2>
+        <div className="sidebar__link">
+          <a href="#">Adicionar Pontos Turísticos</a>
         </div>
         <div className="sidebar__link">
-          <a href="#">Categorias</a>
+          <a href="#">Atualizar Pontos Turísticos</a>
         </div>
         <div className="sidebar__link">
-          <a href="#">Pedidos</a>
+          <a href="#">Deletar Pontos Turísticos</a>
         </div>
-        <h2>PESSOAS</h2>
+        <h2>Regiões</h2>
         <div className="sidebar__link">
-          <a href="#">Administradores</a>
+          <a href="#">Atualizar Regiões</a>
         </div>
+        <h2>Estados</h2>
         <div className="sidebar__link">
-          <a href="#">Usuarios</a>
-        </div>
-        <div className="sidebar__link">
-          <a href="#">Pagamentos e custos</a>
-        </div>
-        <div className="sidebar__link">
-          <a href="#">A plataforma</a>
-        </div>
-        <div className="sidebar__link">
-          <a href="#">Politica de privacidade</a>
+          <a href="#">Atualizar Estados</a>
         </div>
         <div className="sidebar__logout">
           <a href="#">Log out</a>
