@@ -84,7 +84,7 @@ class PlaceController{
     
     show(req,res){
         
-        connection.query('SELECT id, foto_capa FROM roteiros ORDER BY rand() LIMIT 5;', function (err, rows, fields) {
+        connection.query('SELECT id_regiao, foto_capa_regiao FROM regioes;', function (err, rows, fields) {
             if (err) throw err
     
             res.send(rows);
