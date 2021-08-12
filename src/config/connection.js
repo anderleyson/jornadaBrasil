@@ -1,7 +1,7 @@
 const mysql = require('mysql2')
 
-for (;;) {
-    try {
+
+  
         const connection =  mysql.createConnection({
           host: process.env.DB_HOST,
           user: process.env.DB_USERNAME,
@@ -16,18 +16,7 @@ for (;;) {
             }
             
         });
-      try {
-        // do stuff with conn
-      } catch (err) {
-        console.log(`Error doing stuff: ${err.message}`);
-      } finally {
-        connection.destroy();
-      }
-    } catch (err) {
-      console.log(`Unable to acquire connection: ${err.message}`);
-    }
-    // delay before trying to reacquire connection
-
+   
 /*const connection = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USERNAME,
@@ -48,5 +37,5 @@ connection.connect((err)=> {
   }
 
 */
-}
+
 module.exports = connection;
