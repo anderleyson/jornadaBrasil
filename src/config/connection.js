@@ -8,14 +8,14 @@ const mysql = require('mysql2')
           password: process.env.DB_PASSWORD,
           database: process.env.DB_NAME 
         });
-        connection.connect((err)=> {
+        /*connection.connect((err)=> {
             if(err){
                 console.log("Erro ao conectar com o banco!\n" + err)
             }else{
                 console.log("Conectado com o banco!")
             }
             
-        });
+        });*/
    
 /*const connection = mysql.createConnection({
   host: process.env.DB_HOST,
