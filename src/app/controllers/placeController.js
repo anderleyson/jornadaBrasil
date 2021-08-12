@@ -1,8 +1,12 @@
-const connection = require('../../config/connection');
+const connectionRequest = require('../../config/connection');
+const connection = connectionRequest();
 const multer = require('multer')
 
-class PlaceController{
+
     
+
+class PlaceController{
+
     insertPonto(req, res){
        let id = req.params.id;
         console.log(req.file);
@@ -93,7 +97,7 @@ class PlaceController{
             }
         })}
         catch{
-            
+
         }
     }
 }

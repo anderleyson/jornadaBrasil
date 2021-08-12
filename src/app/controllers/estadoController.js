@@ -1,4 +1,5 @@
-const connection = require('../../config/connection');
+const connectionRequest = require('../../config/connection');
+const connection = connectionRequest();
 
 class EstadoController{
 
