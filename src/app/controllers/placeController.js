@@ -83,7 +83,7 @@ class PlaceController{
     
     
     show(req,res){
-        
+        try{
         connection.query('SELECT id_regiao, foto_capa_regiao FROM regioes;', function (err, rows, fields) {
             if (err) 
             {
@@ -91,9 +91,10 @@ class PlaceController{
             }else{
                 res.send(rows);
             }
-    
+        })}
+        catch{
             
-        })
+        }
     }
 }
 
