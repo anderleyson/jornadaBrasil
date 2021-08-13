@@ -1,11 +1,11 @@
 const connectionRequest = require('../../config/connection');
-const connection = connectionRequest();
+
 
 class UserController{
 
     
     store(req,res){
-
+        const connection = connectionRequest();
         if (req.body.name == "" || req.body.email == "" || req.body.password == "") {
             return res.status(400).send({ message: 'Dados inseridos de forma incorreta. Verifique os dados informados e tente novamente.' });
         }
@@ -22,14 +22,17 @@ class UserController{
                 })
             })
         }
+        connection.end();
     }
 
     show(req, res){
+        const connection = connectionRequest();
         connection.query('SELECT * FROM users', function (err, rows, fields) {
             if (err) throw err
     
             res.send(rows);
-        })
+        });
+        connection.end();
     }
 
 }

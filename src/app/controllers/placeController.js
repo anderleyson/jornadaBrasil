@@ -1,5 +1,5 @@
 const connectionRequest = require('../../config/connection');
-const connection = connectionRequest();
+
 const multer = require('multer')
 const path = require('path')
 
@@ -9,7 +9,8 @@ const path = require('path')
 class PlaceController{
 
     insertPonto(req, res){
-       let id = req.params.id;
+        const connection = connectionRequest();
+        let id = req.params.id;
         console.log(req.file);
             connection.query("INSERT INTO `jornada_brasil`.`pontos_turisticos` (`id_ponto`, `desc_ponto`, `cidade`, `valor`, `tipo`, `curiosidade`, `foto_principal_ponto`, `id_roteiro`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);",
             [
@@ -53,12 +54,14 @@ class PlaceController{
                     }
                 })
             })
+            connection.end();
     }
     
     
     
     
     show(req,res){
+        const connection = connectionRequest();
         try{
         connection.query('SELECT id_regiao, foto_capa_regiao FROM regioes;', function (err, rows, fields) {
             if (err) 
@@ -71,6 +74,7 @@ class PlaceController{
         catch{
 
         }
+        connection.end();
     }
 }
 

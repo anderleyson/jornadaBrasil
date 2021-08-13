@@ -14,13 +14,14 @@ const routes = new Router();
 /**
  * Rotas para telas
  */
+routes.get("/", placeController.show);
 routes.get("/regioes", regiaoController.getRegioes);
 routes.get("/regiao/:id", regiaoController.getRegiao);
-routes.put('/regiao/:id', uploads.fields([{name: 'foto_capa_regiao', maxCount:1 }, {name: 'foto_principal_regiao', maxCount:1 }, {name: 'foto_prato', maxCount:1 }]), regiaoController.updateRegiao);
+routes.put("/regiao/:id", uploads.fields([{name: 'foto_capa_regiao', maxCount:1 }, {name: 'foto_principal_regiao', maxCount:1 }, {name: 'foto_prato', maxCount:1 }]), regiaoController.updateRegiao);
 
-routes.get('/estados', estadoController.getEstados);
+routes.get("/estados", estadoController.getEstados);
 routes.get("/estado/:id", estadoController.getEstado);
-routes.put('/estado/:id', uploads.fields([{name: 'foto_capa_estado', maxCount:1 }, {name: 'foto_principal_estado', maxCount:1 }]), estadoController.updateEstado);
+routes.put("/estado/:id", uploads.fields([{name: 'foto_capa_estado', maxCount:1 }, {name: 'foto_principal_estado', maxCount:1 }]), estadoController.updateEstado);
 
 routes.get("/:id", roteiroController.getRoteirosById)
 routes.get("/roteiros", roteiroController.getRoteiros);
