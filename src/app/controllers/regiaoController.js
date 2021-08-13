@@ -3,10 +3,38 @@ const connection = connectionRequest();
 
 class RegiaoController{
 
-
+        updateRegiao(req, res){
+            let id = req.params.id
+            connection.query("UPDATE `regioes` SET `desc_regiao` = '"+ req.body.desc_regiao +"', `culinaria` = '"+ req.body.culinaria +"', `foto_capa_regiao` = '"+  req.files.foto_capa_regiao[0].path +"', `foto_principal_regiao` = '" + req.files.foto_principal_regiao[0].path +"', `foto_prato` = '"+ req.files.foto_prato[0].path +"' WHERE (`id_regiao` = '"+ id + "');",
+            
+            (err) => {
+                if(err){
+                console.log(err)
+                    return res.status(400).json({
+                        error: true, 
+                        message: "Erro ao tentar atualizar região no banco"
+                    })
+                }
+                return res.status(200).json({
+                    error:false,
+                    message: "Região atualizada com sucesso",
+                    regiao: {
+                    
+                        fotos: req.files
+                    }
+                })
+            })
+        }
         getRegiao(req, res){
             let id = req.params.id;
             connection.query('SELECT r.id_regiao, r.desc_regiao, r.culinaria, r.foto_capa_regiao, r.foto_prato, r.foto_principal_regiao, e.id_estado, e.foto_principal_estado, ro.id_roteiro, ro.foto_principal_roteiro FROM regioes r INNER JOIN estados e ON r.id_regiao = e.id_regiao INNER JOIN roteiros ro ON e.id_estado = ro.id_estado WHERE r.id_regiao = "'+ id +'" ORDER BY rand() LIMIT 3;', function(err, rows, fields){
+                if (err) throw err
+    
+                res.send(rows);
+            });
+        }
+        getRegioes(req, res){
+            connection.query('SELECT * FROM regioes', function(err, rows, fields){
                 if (err) throw err
     
                 res.send(rows);
@@ -21,7 +49,6 @@ class RegiaoController{
                 res.send(rows);
             })
         }
-
 }
 
 module.exports =  new RegiaoController();

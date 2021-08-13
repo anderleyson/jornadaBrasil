@@ -11,10 +11,9 @@ module.exports = function () {
       if(err){
           console.log("Erro ao conectar com o banco!\n" + err)
           connection.connect();
-      }else{
-          console.log("Conectado com o banco!")
       }
   });
+
 
   return connection;
 }

@@ -1,6 +1,7 @@
 const connectionRequest = require('../../config/connection');
 const connection = connectionRequest();
 const multer = require('multer')
+const path = require('path')
 
 
     
@@ -53,36 +54,7 @@ class PlaceController{
                 })
             })
     }
-    insertRoteiro(req,res){
-        connection.query("INSERT INTO `jornada_brasil`.`roteiros` (`id_roteiro`, `desc_roteiro`, `foto_capa_roteiro`, `foto_principal_roteiro`, `id_estado`) VALUES ('?', '?', '?', '?', '?');",
-        [
-            req.body.id_roteiro,
-            req.body.desc_roteiro,
-            req.file.path,
-            req.file.path,
-            req.body.id_estado
-        ], 
-        (err) => {
-            if(err){
-                console.log(err)
-                return res.status(400).json({
-                    error: true, 
-                    message: "Erro ao tentar inserir roteiro no banco"
-                })
-            }    
-            return res.status(200).json({
-                error:false,
-                message: "Roteiro inserido.",
-                local:{
-                    "Nome do roteiro:": req.body.id_roteiro,
-                    "Descrição:": req.body.desc_roteiro,
-                    "Foto de capa": req.file.path,
-                    "Foto principal": req.file.path,
-                    "Estado:": req.body.id_estado
-                }
-            })
-        })
-    }
+    
     
     
     
