@@ -10,7 +10,6 @@ module.exports = function () {
   connection.connect((err)=> {
       if(err){
           console.log("Erro ao conectar com o banco!\n" + err)
-          connection.connect();
       }
   });
 

@@ -6,7 +6,7 @@ class EstadoController{
     updateEstado(req,res){
         const connection = connectionRequest();
         let id = req.params.id
-        connection.query("UPDATE `estados` SET `desc_estado` = '"+ req.body.desc_estado +"', `foto_capa_estado` = '"+  req.files.foto_capa_estado[0].path +"', `foto_principal_estado` = '" + req.files.foto_principal_estado[0].path +"' WHERE (`id_estado` = '"+ id + "');",
+        connection.query("UPDATE `estados` SET `desc_estado` = '"+ req.body.desc_estado +"', `foto_capa_estado` = '"+ req.files.foto_capa_estado[0].path+"', `foto_principal_estado` = '"+ req.files.foto_principal_estado[0].path +"' WHERE (`id_estado` = '"+ id +"');",
         
         (err) => {
             if(err){
