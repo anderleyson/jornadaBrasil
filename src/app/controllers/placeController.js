@@ -11,8 +11,8 @@ class PlaceController{
     insertPonto(req, res){
         const connection = connectionRequest();
         let id = req.params.id;
-        console.log(req.file);
-            connection.query("INSERT INTO `jornada_brasil`.`pontos_turisticos` (`id_ponto`, `desc_ponto`, `cidade`, `valor`, `tipo`, `curiosidade`, `foto_principal_ponto`, `id_roteiro`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);",
+        
+            connection.query("INSERT INTO `pontos_turisticos` (`id_ponto`, `desc_ponto`, `cidade`, `valor`, `tipo`, `curiosidade`, `foto_principal_ponto`, `id_roteiro`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);",
             [
                 req.body.id_ponto,
                 req.body.desc_ponto,
@@ -32,13 +32,13 @@ class PlaceController{
                         message: "Erro ao tentar inserir imagem no banco"
                     })
                   } else if (err) {
-                    console.log(err)
+                    console.log(err);
                     return res.status(400).json({
                         error: true, 
                         message: "Erro ao tentar inserir local no banco"
                     })
                   }
-                 
+                console.log(req.file)
                 return res.status(200).json({
                     error:false,
                     message: "Local inserido.",
@@ -49,7 +49,7 @@ class PlaceController{
                         "Valor": req.body.valor,
                         "Tipo": req.body.tipo,
                         "Curiosidade": req.body.curiosidade,
-                        "Foto": req.file.path,
+                        "Foto": req.file,
                         "Roteiro:": id
                     }
                 })

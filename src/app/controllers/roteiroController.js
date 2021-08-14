@@ -53,7 +53,7 @@ class RoteiroController{
         const connection = connectionRequest();
         let id = req.params.id;
 
-        connection.query('SELECT r.id_roteiro, r.foto_principal_roteiro FROM roteiros r WHERE r.id_roteiro = "'+ id +'";', function (err, rows, fields) {
+        connection.query('SELECT * FROM roteiros r WHERE r.id_roteiro = "'+ id +'";', function (err, rows, fields) {
             if (err) throw err
             if(rows == 0){
                 res.status(404).json({message:"Not found"})
@@ -69,7 +69,7 @@ class RoteiroController{
         const connection = connectionRequest();
         let id = req.params.id;
 
-        connection.query('SELECT r.id_roteiro, r.desc_roteiro, r.foto_capa_roteiro, r.foto_principal_roteiro, p.id_ponto, p.desc_ponto, p.cidade, p.valor, foto_principal_ponto FROM roteiros r INNER JOIN pontos_turisticos p on r.id_roteiro = p.id_roteiro WHERE r.id_roteiro = "'+ id +'";', function (err, rows, fields) {
+        connection.query('SELECT r.id_roteiro, r.desc_roteiro, r.foto_capa_roteiro, r.foto_principal_roteiro, p.id_ponto, p.desc_ponto, p.cidade, p.valor, p.foto_principal_ponto FROM roteiros r INNER JOIN pontos_turisticos p on r.id_roteiro = p.id_roteiro WHERE r.id_roteiro = "'+ id +'";', function (err, rows, fields) {
             if (err) {console.log(err)}
             if(rows == 0){
                 res.status(404).json({message:"Not found"})

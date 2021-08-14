@@ -1,6 +1,8 @@
 const { Router } = require('express');
-const uploads = require('./config/upload');
+//const uploads = require('./config/upload');
+
 const multer = require('multer');
+const uploads = multer({dest: 'uploads/'});
 
 const placeController = require('./app/controllers/placeController');
 const userController = require('./app/controllers/userController');
@@ -23,7 +25,7 @@ routes.get("/estados", estadoController.getEstados);
 routes.get("/estado/:id", estadoController.getEstado);
 routes.put("/estado/:id", uploads.fields([{name: 'foto_capa_estado', maxCount:1 }, {name: 'foto_principal_estado', maxCount:1 }]), estadoController.updateEstado);
 
-routes.get("/:id", roteiroController.getRoteirosById)
+//routes.get("/:id", roteiroController.getRoteirosById)
 routes.get("/roteiros", roteiroController.getRoteiros);
 routes.get("/roteiro/:id", roteiroController.getRoteirosInfo);
 routes.post("/roteiro", uploads.fields([{ name: 'foto_capa_roteiro', maxCount: 1 }, { name: 'foto_principal_roteiro', maxCount: 1 }]), roteiroController.insertRoteiro);
