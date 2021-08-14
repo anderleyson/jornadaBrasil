@@ -2,15 +2,6 @@ const connectionRequest = require('../../config/connection')
 
 class RegiaoController {
   updateRegiao(req, res) {
-    if (req.files.foto_principal_regiao[0].path === undefined) {
-      req.files.foto_principal_regiao[0].path = ''
-    }
-    if (req.files.foto_prato[0].path === undefined) {
-      req.files.foto_prato[0].path = ''
-    }
-    if (req.files.foto_capa_regiao[0].path === undefined) {
-      req.files.foto_capa_regiao[0].path = ''
-    }
     const connection = connectionRequest()
     let id = req.params.id
     connection.query(
