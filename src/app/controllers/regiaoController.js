@@ -1,4 +1,4 @@
-const connectionRequest = require('../../config/connection');
+const connectionRequest = require('../../config/connection')
 
 
 class RegiaoController{
@@ -57,6 +57,7 @@ class RegiaoController{
             });
             connection.end();
         }
+
 }
 
-module.exports =  new RegiaoController();
+module.exports = new RegiaoController()
